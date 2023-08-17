@@ -1,11 +1,11 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
+import Administrador from "./components/views/Administrador";
 
 function App() {
   return (
     <>
-      <Container></Container>
+      <Administrador></Administrador>
     </>
   );
 }

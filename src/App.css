@@ -5,5 +5,8 @@
   flex-direction: column;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+}
+
+.mainSection {
+  flex-grow: 1;
 }
