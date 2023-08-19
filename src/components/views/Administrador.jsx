@@ -5,7 +5,7 @@ import CrearProducto from "./products/CrearProducto";
 const Administrador = () => {
   return (
     <section className="container mainSection">
-      <h1 className="mb-5">Productos Disponibles</h1>
+      <h1 className="mb-5 text-center">Productos Disponibles</h1>
       <div className="my-5 d-flex flex-wrap justify-content-between align-items-center">
         <div className="m-2">
           <h3>Producto 1</h3>
