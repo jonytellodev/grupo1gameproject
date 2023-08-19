@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CrearProducto from "./components/views/products/CrearProducto";
 import EditarProducto from "./components/views/products/EditarProducto";
 import Menu from "./components/common/Menu";
-import Foteer from "./components/common/Foteer";
+import Footer from "./components/common/Footer";
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
           element={<EditarProducto></EditarProducto>}
         ></Route>
       </Routes>
-      <Foteer></Foteer>
+      <Footer></Footer>
     </BrowserRouter>
   );
 }

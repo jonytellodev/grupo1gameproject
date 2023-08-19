@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 
-const Foteer = () => {
+const Footer = () => {
   return (
     <Navbar expand="lg" bg="dark" className="bg-body-dark p-4">
       <Container className="flex-row justify-content-evenly">
@@ -33,4 +33,4 @@ const Foteer = () => {
   );
 };
 
-export default Foteer;
+export default Footer;
