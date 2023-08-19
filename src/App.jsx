@@ -6,6 +6,7 @@ import CrearProducto from "./components/views/products/CrearProducto";
 import EditarProducto from "./components/views/products/EditarProducto";
 import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer";
+import Error404 from "./components/views/Error404";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           path="/administrador/editar"
           element={<EditarProducto></EditarProducto>}
         ></Route>
+        <Route path="*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>
