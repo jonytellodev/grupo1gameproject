@@ -7,12 +7,14 @@ import EditarProducto from "./components/views/products/EditarProducto";
 import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer";
 import Error404 from "./components/views/Error404";
+import Inicio from "./components/views/Inicio";
 
 function App() {
   return (
     <BrowserRouter>
       <Menu></Menu>
       <Routes>
+        <Route exact path="/" element={<Inicio></Inicio>}></Route>
         <Route
           exact
           path="/administrador"
