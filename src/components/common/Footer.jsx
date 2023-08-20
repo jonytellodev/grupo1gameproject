@@ -1,11 +1,12 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { NavLink, Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <Navbar expand="lg" bg="dark" className="bg-body-dark mt-5 p-4">
       <Container className="flex-row justify-content-evenly">
         <div>
-          <Navbar.Brand href="#home" className="text-light fw-bold">
+          <Navbar.Brand as={Link} to={"/"} className="text-light fw-bold">
             Gamers Landing
           </Navbar.Brand>
         </div>
@@ -13,18 +14,20 @@ const Footer = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home" className="text-light fw-bold">
+              <NavLink className={"nav-link text-light fw-bold"} end to={"/"}>
                 Inicio
-              </Nav.Link>
-              <Nav.Link href="#link" className="text-light fw-bold">
+              </NavLink>
+              <NavLink className={"nav-link text-light fw-bold"}>
                 Registro
-              </Nav.Link>
-              <Nav.Link href="#link" className="text-light fw-bold">
+              </NavLink>
+              <NavLink
+                className={"nav-link text-light fw-bold"}
+                end
+                to={"/administrador"}
+              >
                 Administrador
-              </Nav.Link>
-              <Nav.Link href="#link" className="text-light fw-bold">
-                Login
-              </Nav.Link>
+              </NavLink>
+              <NavLink className={"nav-link text-light fw-bold"}>Login</NavLink>
             </Nav>
           </Navbar.Collapse>
         </div>
