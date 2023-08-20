@@ -1,0 +1,15 @@
+{
+    "usuarios":[
+        {
+          "nombreUsuario": "Admin",
+          "email": "admin@rolling.com",
+          "password": "123456aaA",
+          "id":1
+        }
+
+
+
+    ]
+
+
+}
