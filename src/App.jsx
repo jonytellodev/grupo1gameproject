@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import './App.css'
 import Login from "./components/views/Login";
+import Error404 from './components/views/Error404';
 
 function App() {
   const usuarioEnLinea = JSON.parse(sessionStorage.getItem('usuarioLogueado')) || {};
@@ -9,7 +10,8 @@ function App() {
 
   return (
     <>
-    <Login setUsuarioActivo={setUsuarioActivo}></Login>
+     <Login setUsuarioActivo={setUsuarioActivo}></Login> 
+    {/* <Error404></Error404> */}
     </>
   )
 }
