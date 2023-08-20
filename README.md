@@ -14,13 +14,27 @@
 
 2. Usamos el **"bootstrap/dist/css/bootstrap.min.css"** para utilizar los estilos de Bootstrap.
 
-3.
-
-4.
+3. Utilizamos la librería **"react-router-dom"** para usar los Componentes NavLink y Link para hacer los enrutamientos
 
 ---
 
-> **IMPORTANTE:** Para ambos casos tenemos que importar estas herramientas con el **import**.
+> **IMPORTANTE:** Para todos los casos tenemos que importar estas herramientas con el **import**.
+
+4. Usamos **json-server:** importante tenerlo instalado con el comando:
+
+```bash
+npm install -g json-server
+```
+
+- Luego debemos crear un archivo --> **db.json** en la raiz de nuestro proyecto.
+
+- Debemos usar el comando:
+
+```bash
+ json-server --watch db.json --port 3004
+```
+
+Sirve para ejecutar json-server pero como por defecto lo ejecuta en el puerto 3000 debemos agregarle nosotros en qué puerto se va a ejecutar.
 
 ### Repositorio 💻
 
