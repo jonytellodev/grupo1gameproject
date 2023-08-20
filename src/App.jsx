@@ -4,11 +4,12 @@ import './App.css'
 import Login from "./components/views/Login";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const usuarioEnLinea = JSON.parse(sessionStorage.getItem('usuarioLogueado')) || {};
+  const [usuarioActivo, setUsuarioActivo] = useState(usuarioEnLinea);
 
   return (
     <>
-    <Login></Login>
+    <Login setUsuarioActivo={setUsuarioActivo}></Login>
     </>
   )
 }
