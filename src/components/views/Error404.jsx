@@ -5,8 +5,8 @@ const Error404 = () => {
         <>
             
             <img src={error} alt="error 404"/>
-            <div>
-            <Button variant="secondary">Volver al inicio</Button>{' '}
+            <div className='mt-5'>
+            <Button variant="outline-danger">Volver al inicio</Button>{' '}
             </div>
         </>
         
