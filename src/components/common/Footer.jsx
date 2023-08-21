@@ -1,9 +1,11 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
+import "./Footer.css";
+
 
 const Footer = () => {
   return (
-    <Navbar expand="lg" bg="dark" className="bg-body-dark mt-5 p-4">
+    <Navbar expand="lg" bg="dark" className="fixFooter bg-body-dark mt-5 p-4">
       <Container className="flex-row justify-content-evenly">
         <div>
           <Navbar.Brand as={Link} to={"/"} className="text-light fw-bold">

@@ -1,3 +1,10 @@
+:root{
+  --primary:#FFFFFF;
+  --secondary-one:#7E16CD;
+  --secondary-two: #303948;
+  --terciary:#E6E6E6;
+}
+
 #root {
   min-height: 100vh;
   display: flex;
