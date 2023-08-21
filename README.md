@@ -36,6 +36,12 @@ npm install -g json-server
 
 Sirve para ejecutar json-server pero como por defecto lo ejecuta en el puerto 3000 debemos agregarle nosotros en qué puerto se va a ejecutar.
 
+5. Utilizamos la librería **react-hook-form** para hacer las validaciones usando expresiones regulares en los formularios. Lo instalamos con:
+
+```bash
+npm install react-hook-form
+```
+
 ### Repositorio 💻
 
 El código del sitio se encuentran en el sgte. repositorio:

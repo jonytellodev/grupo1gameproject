@@ -16,5 +16,13 @@
       "descripcion": "juego de acción",
       "id": 2
     }
+  ],
+  "usuario": [
+    {
+      "nombreUsuario": "Admin",
+      "email": "admin@gamerpage.com",
+      "password": "123456aA",
+      "id": 1
+    }
   ]
 }

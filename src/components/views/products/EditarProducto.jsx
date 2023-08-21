@@ -1,16 +1,27 @@
 import { Form, Button } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
 const EditarProducto = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = () => {
+    console.log("funciona");
+  };
+
   return (
     <section className="container mainSection">
       <h1 className="display-4 my-5">Editar Producto</h1>
-      <Form className="fs-3">
+      <Form onSubmit={handleSubmit(onSubmit)} className="fs-3">
         <Form.Group className="my-3" controlId="formNombreProducto">
           <Form.Label className="my-3">Producto*</Form.Label>
           <Form.Control
             className="fs-4"
             type="text"
-            placeholder="Ej: Mario Bross Evolution"
+            placeholder="Ej: Nombre del producto"
           />
         </Form.Group>
         <Form.Group className="my-3" controlId="formDetalle">
