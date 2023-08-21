@@ -1,61 +1,87 @@
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import Isaias from  '../../assets/Isaias.png';
-import Jhonatan from  '../../assets/Jhonatan.png';
+import Jonathan from  '../../assets/Jhonatan.png';
 import Emiliana from  '../../assets/Emiliana.png';
+import Sergio from  '../../assets/Sergio.png';
+import Tufi from '../../assets/Sergio.png';
+import GitIcono from  '../../assets/git.png';
+import Linkedin from  '../../assets/linkedin.png';
 
-const PersonCard = ({ imageSrc, name, profession }) => {
+const PersonCard = ({ imageSrc, Apellido, Nombre, socialLinks }) => {
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={imageSrc} roundedCircle />
-      <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>{profession}</Card.Text>
-      </Card.Body>
+    <Card style={{ width: '100%' }}>
+      <Row className="align-items-center">
+        <Col sm={4}>
+          <Card.Img variant="top" src={imageSrc} roundedCircle />
+        </Col>
+        <Col sm={8}>
+          <Card.Body>
+            <Card.Title className="mb-3">
+                <span style={{ fontSize: '3.8rem' }}>{Apellido} {Nombre}</span>
+                </Card.Title>
+            <div className="d-flex flex-column">
+              {socialLinks.map((link, index) => (
+                <a key={index} href={link.url} className="mb-2">
+                  <img src={link.icon} alt={link.name} style={{ width: '50px', height: '50px' }} />
+                </a>
+              ))}
+            </div>
+          </Card.Body>
+        </Col>
+      </Row>
     </Card>
   );
 };
 
-const ListaNosotros = () => {
+const Participantes = () => {
   const people = [
-    { id: 1, name: 'Padros Isaias', profession: 'Estudiante', imageSrc: Isaias },
-    { id: 2, name: 'Quipildor Tufi', profession: 'Profesión 2', imageSrc: 'URL_IMAGEN_2' },
-    { id: 3, name: 'Carrasco Jonathan', profession: 'Profesión 3', imageSrc: Jhonatan },
-    { id: 4, name: 'Torres Emiliana', profession: 'Profesión 4', imageSrc: Emiliana },
-    { id: 5, name: 'Zelaya Sergio', profession: 'Profesión 5', imageSrc: 'URL_IMAGEN_5' },
+    { id: 1, Apellido: 'Padros', Nombre: 'Marcos Isaias', imageSrc: Isaias, socialLinks: [
+      { url: 'https://github.com/IsaiasPadros', icon: GitIcono, name: 'Git' },
+      { url: '', icon: Linkedin, name: 'Linkedin' },
+      
+    ] },
+    { id: 2, Apellido: 'Quipildor', Nombre: 'Tufi', imageSrc: Tufi, socialLinks: [
+        { url: 'https://github.com/TQcmd37', icon: GitIcono, name: 'Git' },
+        { url: '', icon: Linkedin, name: 'Linkedin' },
+        
+      ] },
+      { id: 3, Apellido: 'Carrasco', Nombre: 'Jonathan', imageSrc: Jonathan, socialLinks: [
+        { url: 'https://github.com/jonytellodev', icon: GitIcono, name: 'Git' },
+        { url: '', icon: Linkedin, name: 'Linkedin' },
+        
+      ] },
+      { id: 4, Apellido: 'Torres', Nombre: 'Emiliana', imageSrc: Emiliana, socialLinks: [
+        { url: 'https://github.com/EmiTorres93', icon: GitIcono, name: 'Git' },
+        { url: '', icon: Linkedin, name: 'Linkedin' },
+        
+      ] },
+      { id: 5, Apellido: 'Zelaya', Nombre: 'Sergio', imageSrc: Sergio, socialLinks: [
+        { url: 'https://github.com/SergioSZelaya', icon: GitIcono, name: 'Git' },
+        { url: '', icon: Linkedin, name: 'Linkedin' },
+        
+      ] },
+      
+    
   ];
 
   return (
     <div>
-       <div className="text-center  py-5">
-        <h1 className="display-4">Acerca de nosotros</h1>
-      </div>
-    <Row className="justify-content-center">
-      {people.slice(0, 3).map(person => (
-        <Col key={person.id}>
+      {people.map(person => (
+        <div key={person.id} className="mb-4">
           <PersonCard
-            name={person.name}
-            profession={person.profession}
+            Apellido={person.Apellido}
+            Nombre={person.Nombre}
             imageSrc={person.imageSrc}
+            socialLinks={person.socialLinks}
           />
-        </Col>
+        </div>
       ))}
-    </Row>
-    <Row className="justify-content-center">
-      {people.slice(3).map(person => (
-        <Col key={person.id}>
-          <PersonCard
-            name={person.name}
-            profession={person.profession}
-            imageSrc={person.imageSrc}
-          />
-        </Col>
-      ))}
-    </Row>
-  </div>
+    </div>
   );
 };
 
-export default ListaNosotros;
+export default Participantes;
