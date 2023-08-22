@@ -8,8 +8,8 @@ const CrearProducto = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = () => {
-    console.log("funciona");
+  const onSubmit = (producto) => {
+    console.log(producto);
   };
 
   return (
@@ -88,10 +88,18 @@ const CrearProducto = () => {
               required: "Elección de la categoría es un dato obligatorio",
             })}
           >
-            <option value="">Seleccione una opción</option>
-            <option value="accion">Acción</option>
-            <option value="estrategia">Estrategia</option>
-            <option value="aventura">Aventura</option>
+            <option className="fs-4" value="">
+              Seleccione una opción
+            </option>
+            <option className="fs-5" value="accion">
+              Acción
+            </option>
+            <option className="fs-5" value="estrategia">
+              Estrategia
+            </option>
+            <option className="fs-5" value="aventura">
+              Aventura
+            </option>
           </Form.Select>
           <Form.Text className="text-danger">
             {errors.categoria?.message}

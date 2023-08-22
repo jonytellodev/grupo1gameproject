@@ -8,8 +8,8 @@ const EditarProducto = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = () => {
-    console.log("funciona");
+  const onSubmit = (admin) => {
+    console.log(admin);
   };
 
   return (

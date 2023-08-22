@@ -15,9 +15,17 @@
       "imagen": "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg",
       "descripcion": "juego de acción",
       "id": 2
+    },
+    {
+      "nombreProducto": "Space Ace",
+      "precio": 2600,
+      "categoria": "estrategia",
+      "imagen": "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg",
+      "descripcion": "juego de acción y estrategia",
+      "id": 1
     }
   ],
-  "usuario": [
+  "usuarioAdmin": [
     {
       "nombreUsuario": "Admin",
       "email": "admin@gamerpage.com",
