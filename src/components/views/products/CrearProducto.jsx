@@ -20,6 +20,7 @@ const CrearProducto = () => {
           "Producto agregado con éxito!",
           "success"
         );
+        localStorage.setItem("productoAgregado", JSON.stringify(respuesta));
       } else {
         Swal.fire(
           "Ocurrió un error!",

@@ -42,6 +42,12 @@ Sirve para ejecutar json-server pero como por defecto lo ejecuta en el puerto 30
 npm install react-hook-form
 ```
 
+6. Instalamos la librería sweetalert para mostrar los mensajes de Alertas (éxito o error):
+
+```bash
+npm install sweetalert2
+```
+
 ### Repositorio 💻
 
 El código del sitio se encuentran en el sgte. repositorio:
