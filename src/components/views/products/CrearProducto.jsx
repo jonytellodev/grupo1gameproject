@@ -1,6 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { agregarProducto } from "../../helpers/queries";
+import Swal from "sweetalert2";
 
 const CrearProducto = () => {
   const {
@@ -13,6 +14,19 @@ const CrearProducto = () => {
     console.log(producto);
     agregarProducto(producto).then((respuesta) => {
       console.log(respuesta);
+      if (respuesta) {
+        Swal.fire(
+          "Agregaste " + respuesta.nombreProducto,
+          "Producto agregado con éxito!",
+          "success"
+        );
+      } else {
+        Swal.fire(
+          "Ocurrió un error!",
+          "Nombre, precio o categoría del producto incorrecto",
+          "error"
+        );
+      }
     });
   };
 
