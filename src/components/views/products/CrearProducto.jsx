@@ -1,5 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { agregarProducto } from "../../helpers/queries";
 
 const CrearProducto = () => {
   const {
@@ -10,6 +11,9 @@ const CrearProducto = () => {
 
   const onSubmit = (producto) => {
     console.log(producto);
+    agregarProducto(producto).then((respuesta) => {
+      console.log(respuesta);
+    });
   };
 
   return (

@@ -4,14 +4,14 @@ export const agregarProducto = async (producto) => {
     const respuesta = await fetch("http://localhost:3004/productos");
     const listaProductos = await respuesta.json();
     //buscar si está el producto que quiero agregar en mi lista de json server
-    const productoBuscado = listaProductos.find((itemProducto) => {
-      itemProducto.nombreProducto === producto.nombreProducto;
-    });
+    const productoBuscado = listaProductos.find(
+      (itemProducto) => itemProducto.nombreProducto === producto.nombreProducto
+    );
 
     if (productoBuscado) {
       if (
         productoBuscado.categoria === producto.categoria &&
-        productoBuscado.precio === producto.precio
+        productoBuscado.precio == producto.precio
       ) {
         console.log("producto agregado");
         return productoBuscado;
