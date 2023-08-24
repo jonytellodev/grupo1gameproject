@@ -1,7 +1,10 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const EditarProducto = () => {
+  const navegacion = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -9,7 +12,7 @@ const EditarProducto = () => {
   } = useForm();
 
   const onSubmit = (admin) => {
-    console.log(admin);
+    navegacion("/administrador");
   };
 
   return (

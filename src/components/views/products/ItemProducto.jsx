@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const ItemProducto = ({
   mostrarProductosCargados,
@@ -7,6 +8,11 @@ const ItemProducto = ({
   const eliminar = () => {
     setMostrarProductosCargados({});
     localStorage.removeItem("productoAgregado");
+  };
+
+  const navegacion = useNavigate();
+  const redireccionar = () => {
+    navegacion("/administrador/editar");
   };
 
   return (
@@ -21,7 +27,12 @@ const ItemProducto = ({
         <td className="fs-5">Entretenimiento</td>
         <td className="d-flex flex-nowrap">
           <Button variant="danger">X</Button>
-          <Button className="fs-5 fw-bold mx-2 btn btn-warning">Edit🖌️</Button>
+          <Button
+            className="fs-5 fw-bold mx-2 btn btn-warning"
+            onClick={redireccionar}
+          >
+            Edit🖌️
+          </Button>
         </td>
       </tr>
       {mostrarProductosCargados.nombreProducto ? (
@@ -35,7 +46,10 @@ const ItemProducto = ({
             <Button variant="danger" onClick={eliminar}>
               X
             </Button>
-            <Button className="fs-5 fw-bold mx-2 btn btn-warning">
+            <Button
+              className="fs-5 fw-bold mx-2 btn btn-warning"
+              onClick={redireccionar}
+            >
               Edit🖌️
             </Button>
           </td>

@@ -24,11 +24,15 @@ const Administrador = ({
         </div>
         <div className="m-2">
           <h3>Producto 2</h3>
-          <Button className="btn btn-primary">Agregar</Button>
+          <Button className="btn btn-primary" onClick={redireccionar}>
+            Agregar
+          </Button>
         </div>
         <div className="m-2">
           <h3>Producto 3</h3>
-          <Button className="btn btn-primary">Agregar</Button>
+          <Button className="btn btn-primary" onClick={redireccionar}>
+            Agregar
+          </Button>
         </div>
       </div>
 

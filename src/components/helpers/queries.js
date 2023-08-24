@@ -1,7 +1,9 @@
+const variable_entornoProductos = import.meta.env.VITE_API_PRODUCTOS;
+
 export const agregarProducto = async (producto) => {
   try {
     //pedir mi lista de productos
-    const respuesta = await fetch("http://localhost:3004/productos");
+    const respuesta = await fetch(variable_entornoProductos);
     const listaProductos = await respuesta.json();
     //buscar si está el producto que quiero agregar en mi lista de json server
     const productoBuscado = listaProductos.find(

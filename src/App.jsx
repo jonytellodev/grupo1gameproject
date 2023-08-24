@@ -9,6 +9,8 @@ import Footer from "./components/common/Footer";
 import Error404 from "./components/views/Error404";
 import Inicio from "./components/views/Inicio";
 import { useState } from "react";
+import EncapsularRutas from "./components/routes/EncapsularRutas";
+import RutasProtegidas from "./components/routes/RutasProtegidas";
 
 function App() {
   const productosCargados =
@@ -22,6 +24,7 @@ function App() {
       <Menu></Menu>
       <Routes>
         <Route exact path="/" element={<Inicio></Inicio>}></Route>
+
         <Route
           exact
           path="/administrador"
@@ -46,6 +49,7 @@ function App() {
           path="/administrador/editar"
           element={<EditarProducto></EditarProducto>}
         ></Route>
+
         <Route path="*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>

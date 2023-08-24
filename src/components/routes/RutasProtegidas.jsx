@@ -1,7 +1,8 @@
-import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Administrador from "../views/Administrador";
+import CrearProducto from "../views/products/CrearProducto";
+import EditarProducto from "../views/products/EditarProducto";
 
-const RutasProtegidas = () => {
-  return <div></div>;
-};
+const RutasProtegidas = () => {};
 
 export default RutasProtegidas;

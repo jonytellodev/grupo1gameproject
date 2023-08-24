@@ -48,6 +48,8 @@ npm install react-hook-form
 npm install sweetalert2
 ```
 
+7. Existe una variable de entorno llamada VITE_API_PRODUCTOS
+
 ### Repositorio 💻
 
 El código del sitio se encuentran en el sgte. repositorio:

@@ -6,9 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 const CrearProducto = ({ setMostrarProductosCargados }) => {
   const navegacion = useNavigate();
-  const redireccionar = () => {
-    navegacion("/administrador");
-  };
 
   const {
     register,
@@ -19,7 +16,6 @@ const CrearProducto = ({ setMostrarProductosCargados }) => {
   const onSubmit = (producto) => {
     console.log(producto);
     agregarProducto(producto).then((respuesta) => {
-      console.log(respuesta);
       if (respuesta) {
         Swal.fire(
           "Agregaste " + respuesta.nombreProducto,
@@ -28,6 +24,7 @@ const CrearProducto = ({ setMostrarProductosCargados }) => {
         );
         localStorage.setItem("productoAgregado", JSON.stringify(respuesta));
         setMostrarProductosCargados(respuesta);
+        navegacion("/administrador");
       } else {
         Swal.fire(
           "Ocurrió un error!",
@@ -133,11 +130,7 @@ const CrearProducto = ({ setMostrarProductosCargados }) => {
           </Form.Text>
         </Form.Group>
         <div className="d-flex justify-content-end">
-          <Button
-            className="fs-4 fw-bold my-2 btn btn-primary"
-            type="submit"
-            onClick={redireccionar}
-          >
+          <Button className="fs-4 fw-bold my-2 btn btn-primary" type="submit">
             Guardar 💾
           </Button>
         </div>
