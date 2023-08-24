@@ -3,7 +3,7 @@
     {
       "nombreProducto": "Mario Bross",
       "precio": 2500,
-      "categoria": "aventura",
+      "categoria": "Aventura",
       "imagen": "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg",
       "descripcion": "juego de aventura",
       "id": 1
@@ -11,7 +11,7 @@
     {
       "nombreProducto": "Sonic Triple Trouble",
       "precio": 2800,
-      "categoria": "accion",
+      "categoria": "Acción",
       "imagen": "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg",
       "descripcion": "juego de acción",
       "id": 2
@@ -19,10 +19,10 @@
     {
       "nombreProducto": "Space Ace",
       "precio": 2600,
-      "categoria": "estrategia",
+      "categoria": "Estrategia",
       "imagen": "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg",
       "descripcion": "juego de acción y estrategia",
-      "id": 1
+      "id": 3
     }
   ],
   "usuarioAdmin": [

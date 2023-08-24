@@ -2,8 +2,14 @@ import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { agregarProducto } from "../../helpers/queries";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
-const CrearProducto = () => {
+const CrearProducto = ({ setMostrarProductosCargados }) => {
+  const navegacion = useNavigate();
+  const redireccionar = () => {
+    navegacion("/administrador");
+  };
+
   const {
     register,
     handleSubmit,
@@ -21,6 +27,7 @@ const CrearProducto = () => {
           "success"
         );
         localStorage.setItem("productoAgregado", JSON.stringify(respuesta));
+        setMostrarProductosCargados(respuesta);
       } else {
         Swal.fire(
           "Ocurrió un error!",
@@ -44,7 +51,8 @@ const CrearProducto = () => {
             {...register("nombreProducto", {
               required: "El nombre del producto es un dato obligatorio",
               pattern: {
-                value: /(\W|^)(Mario Bross|Sonic Triple Trouble)(\W|$)/,
+                value:
+                  /(\W|^)(Mario Bross|Sonic Triple Trouble|Space Ace)(\W|$)/,
                 message:
                   "El nombre debe cumplir con el formato válido correspondiente a ese producto",
               },
@@ -110,13 +118,13 @@ const CrearProducto = () => {
             <option className="fs-4" value="">
               Seleccione una opción
             </option>
-            <option className="fs-5" value="accion">
+            <option className="fs-5" value="Acción">
               Acción
             </option>
-            <option className="fs-5" value="estrategia">
+            <option className="fs-5" value="Estrategia">
               Estrategia
             </option>
-            <option className="fs-5" value="aventura">
+            <option className="fs-5" value="Aventura">
               Aventura
             </option>
           </Form.Select>
@@ -125,7 +133,11 @@ const CrearProducto = () => {
           </Form.Text>
         </Form.Group>
         <div className="d-flex justify-content-end">
-          <Button className="fs-4 fw-bold my-2 btn btn-primary" type="submit">
+          <Button
+            className="fs-4 fw-bold my-2 btn btn-primary"
+            type="submit"
+            onClick={redireccionar}
+          >
             Guardar 💾
           </Button>
         </div>
