@@ -2,10 +2,9 @@ const variable_entornoProductos = import.meta.env.VITE_API_PRODUCTOS;
 
 export const agregarProducto = async (producto) => {
   try {
-    //pedir mi lista de productos
     const respuesta = await fetch(variable_entornoProductos);
     const listaProductos = await respuesta.json();
-    //buscar si está el producto que quiero agregar en mi lista de json server
+
     const productoBuscado = listaProductos.find(
       (itemProducto) => itemProducto.nombreProducto === producto.nombreProducto
     );
@@ -27,5 +26,17 @@ export const agregarProducto = async (producto) => {
     }
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const listarProductos = async () => {
+  try {
+    const respuesta = await fetch(variable_entornoProductos);
+    console.log(respuesta);
+    const listaProductos = await respuesta.json();
+    return listaProductos;
+  } catch (error) {
+    console.log(error);
+    return "En estos momentos no se pueden cargar los productos. Intente más tarde.";
   }
 };
