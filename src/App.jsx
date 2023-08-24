@@ -32,7 +32,7 @@ function App() {
         ></Route>
         <Route path="*" element={<Error404></Error404>}></Route>
       </Routes>
-      <Footer></Footer>
+      <Footer classname="fixFooter"></Footer>
     </BrowserRouter>
   );
 }
