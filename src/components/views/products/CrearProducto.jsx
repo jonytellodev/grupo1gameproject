@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 const CrearProducto = () => {
   const navegacion = useNavigate();
-
   const {
     register,
     handleSubmit,
@@ -20,14 +19,14 @@ const CrearProducto = () => {
       .then((respuesta) => {
         console.log(respuesta);
         if (respuesta.status === 201) {
+          console.log(producto.nombreProducto);
           Swal.fire(
-            "Agregaste " + respuesta.nombreProducto,
+            "Agregaste " + producto.nombreProducto,
             "Producto agregado con éxito!",
             "success"
           );
           reset();
-          localStorage.setItem("productoAgregado", JSON.stringify(respuesta));
-          setMostrarProductosCargados(respuesta);
+          //localStorage.setItem("productoAgregado", JSON.stringify(respuesta));
           navegacion("/administrador");
         }
       })
@@ -87,6 +86,15 @@ const CrearProducto = () => {
             placeholder="Ej: 500"
             {...register("precio", {
               required: "El precio del producto es un dato obligatorio",
+              min: {
+                value: 1000,
+                message: "El precio como mínimo debe ser de $1000",
+              },
+              max: {
+                value: 40000,
+                message:
+                  "El precio del producto como máximo debe ser de $40000",
+              },
             })}
           />
           <Form.Text className="text-danger">

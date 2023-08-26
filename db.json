@@ -1,28 +1,36 @@
 {
   "productos": [
     {
-      "nombreProducto": "Mario Bross",
-      "precio": 2500,
-      "categoria": "Aventura",
-      "imagen": "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg",
-      "descripcion": "juego de aventura",
-      "id": 1
+      "nombreProducto": "Space Ace",
+      "descripcion": "juego",
+      "precio": "4000",
+      "imagen": "https://assets1.ignimgs.com/2019/01/10/space-ace---button-1547084426735.jpg",
+      "categoria": "Estrategia",
+      "id": 5
     },
     {
       "nombreProducto": "Sonic Triple Trouble",
-      "precio": 2800,
-      "categoria": "Acción",
-      "imagen": "https://howlongtobeat.com/games/111702_Sonic_Triple_Trouble_16-Bit.jpg",
-      "descripcion": "juego de acción",
-      "id": 2
+      "descripcion": "fffff",
+      "precio": "5000",
+      "imagen": "https://assets1.ignimgs.com/2019/01/10/space-ace---button-1547084426735.jpg",
+      "categoria": "Estrategia",
+      "id": 6
+    },
+    {
+      "nombreProducto": "Sonic Triple Trouble",
+      "descripcion": "jjjjj",
+      "precio": "5667",
+      "imagen": "https://assets1.ignimgs.com/2019/01/10/space-ace---button-1547084426735.jpg",
+      "categoria": "Estrategia",
+      "id": 7
     },
     {
       "nombreProducto": "Space Ace",
-      "precio": 2600,
-      "categoria": "Estrategia",
+      "descripcion": "juego divertido",
+      "precio": "4100",
       "imagen": "https://assets1.ignimgs.com/2019/01/10/space-ace---button-1547084426735.jpg",
-      "descripcion": "juego de acción y estrategia",
-      "id": 3
+      "categoria": "Acción",
+      "id": 8
     }
   ],
   "usuarioAdmin": [

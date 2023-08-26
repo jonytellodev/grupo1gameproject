@@ -10,8 +10,12 @@ export const agregarProducto = async (producto) => {
       body: JSON.stringify(producto),
     });
     return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-    /*const listaProductos = await respuesta.json();
+/*const listaProductos = await respuesta.json();
 
     const productoBuscado = listaProductos.find(
       (itemProducto) => itemProducto.nombreProducto === producto.nombreProducto
@@ -32,10 +36,6 @@ export const agregarProducto = async (producto) => {
       console.log("el nombre del producto es incorrecto");
       return null;
     }*/
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 export const listarProductos = async () => {
   try {
@@ -46,5 +46,41 @@ export const listarProductos = async () => {
   } catch (error) {
     console.log(error);
     return "En estos momentos no se pueden cargar los productos. Intente más tarde.";
+  }
+};
+
+export const obtenerProducto = async (id) => {
+  try {
+    const respuesta = await fetch(`${variable_entornoProductos}/${id}`);
+    const dato = await respuesta.json();
+    return dato;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editarProducto = async (id, productoEditado) => {
+  try {
+    const respuesta = await fetch(`${variable_entornoProductos}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(productoEditado),
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const eliminarProducto = async (id) => {
+  try {
+    const respuesta = await fetch(`${variable_entornoProductos}/${id}`, {
+      method: "DELETE",
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
   }
 };

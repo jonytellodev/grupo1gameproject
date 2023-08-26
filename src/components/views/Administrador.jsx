@@ -1,7 +1,5 @@
 import { Container, Button, Table, Row, Card } from "react-bootstrap";
 import ItemProducto from "./products/ItemProducto";
-import CrearProducto from "./products/CrearProducto";
-import { Link, useNavigate } from "react-router-dom";
 import { listarProductos } from "../helpers/queries";
 import CardProducto from "./products/CardProducto";
 import { useState, useEffect } from "react";
@@ -30,21 +28,7 @@ const Administrador = () => {
         <h1 className="display-4 text-center mb-5">Agregar Producto</h1>
         <hr />
         <Row>
-          <CardProducto>
-            <Card.Img
-              style={{ width: "300px", height: "250px" }}
-              variant="top"
-              src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg"
-              alt="imagenMario"
-            />
-            <Card.Body>
-              <Card.Title>MARIO BROSS</Card.Title>
-              <Card.Text>$2500</Card.Text>
-              <Link variant="primary" to={"/administrador/crear"}>
-                Agregar
-              </Link>
-            </Card.Body>
-          </CardProducto>
+          <CardProducto></CardProducto>
         </Row>
       </Container>
 
@@ -62,7 +46,11 @@ const Administrador = () => {
         </thead>
         <tbody>
           {productos.map((producto) => (
-            <ItemProducto key={producto.id} producto={producto}></ItemProducto>
+            <ItemProducto
+              key={producto.id}
+              producto={producto}
+              setProductos={setProductos}
+            ></ItemProducto>
           ))}
         </tbody>
       </Table>

@@ -1,18 +1,59 @@
+import { useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { editarProducto, obtenerProducto } from "../../helpers/queries";
+import Swal from "sweetalert2";
 
 const EditarProducto = () => {
+  const { id } = useParams();
   const navegacion = useNavigate();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm();
 
-  const onSubmit = (admin) => {
-    navegacion("/administrador");
+  useEffect(() => {
+    obtenerProducto(id)
+      .then((respuesta) => {
+        if (respuesta) {
+          setValue("nombreProducto", respuesta.nombreProducto);
+          setValue("precio", respuesta.precio);
+          setValue("descripcion", respuesta.descripcion);
+          setValue("imagen", respuesta.imagen);
+          setValue("categoria", respuesta.categoria);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  const onSubmit = (datos) => {
+    editarProducto(id, datos)
+      .then((respuesta) => {
+        console.log(respuesta);
+        if (respuesta.status === 200) {
+          Swal.fire(
+            "Producto Editado",
+            "Producto editado con éxito!",
+            "success"
+          );
+          navegacion("/administrador");
+          //localStorage.setItem("productoAgregado", JSON.stringify(respuesta));
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire(
+          "Ocurrió un error!",
+          "Nombre, precio o categoría del producto incorrecto",
+          "error"
+        );
+      });
   };
 
   return (
@@ -61,6 +102,15 @@ const EditarProducto = () => {
             placeholder="Ej: 500"
             {...register("precio", {
               required: "El precio es un dato obligatorio.",
+              min: {
+                value: 1000,
+                message: "El precio como mínimo debe ser de $1000",
+              },
+              max: {
+                value: 40000,
+                message:
+                  "El precio del producto como máximo debe ser de $40000",
+              },
             })}
           />
           <Form.Text className="text-danger">
@@ -92,13 +142,13 @@ const EditarProducto = () => {
             <option className="fs-4" value="">
               Seleccione una opción
             </option>
-            <option className="fs-5" value="accion">
+            <option className="fs-5" value="Accion">
               Acción
             </option>
-            <option className="fs-5" value="estrategia">
+            <option className="fs-5" value="Estrategia">
               Estrategia
             </option>
-            <option className="fs-5" value="aventura">
+            <option className="fs-5" value="Aventura">
               Aventura
             </option>
           </Form.Select>
