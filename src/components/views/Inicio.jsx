@@ -9,21 +9,21 @@ const Inicio = () => {
       <Carousel>
         <Carousel.Item>
           <img
-            src="/src/assets/dfcarrousel.webp"
+            src="src\assets\PORTADA1.jpg"
             alt="img-alt"
             className="fixImgWidth"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
-            src="/src/assets/dfcarrousel.webp"
+            src="src\assets\PORTADA2.jpg"
             alt="img-alt"
             className="fixImgWidth"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
-            src="/src/assets/dfcarrousel.webp"
+            src="src\assets\PORTADA3.jpg"
             alt="img-alt"
             className="fixImgWidth"
           />
@@ -71,7 +71,7 @@ const Inicio = () => {
             </div>
             <div className="game-card text-center">
               <img
-                src="/src/assets/gta.jpeg"
+                src="src\assets\minecraft.webp"
                 alt="Juego 1"
                 className="img-fluid gamefixImg"
               />
