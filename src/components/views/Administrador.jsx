@@ -1,40 +1,52 @@
-import { Button, Table } from "react-bootstrap";
+import { Container, Button, Table, Row, Card } from "react-bootstrap";
 import ItemProducto from "./products/ItemProducto";
 import CrearProducto from "./products/CrearProducto";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { listarProductos } from "../helpers/queries";
+import CardProducto from "./products/CardProducto";
+import { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 
-const Administrador = ({
-  mostrarProductosCargados,
-  setMostrarProductosCargados,
-}) => {
-  const navegacion = useNavigate();
+const Administrador = () => {
+  const [productos, setProductos] = useState([]);
 
-  const redireccionar = () => {
-    navegacion("/administrador/crear");
-  };
+  useEffect(() => {
+    listarProductos().then((respuestaProductos) => {
+      if (respuestaProductos) {
+        setProductos(respuestaProductos);
+      } else {
+        Swal.fire(
+          "Ocurrió un error!",
+          "Intente realizar esta operación más tarde",
+          "error"
+        );
+      }
+    });
+  }, []);
+
   return (
-    <section className="container mainSection">
-      <h1 className="mb-5 text-center">Productos Disponibles</h1>
-      <div className="my-5 d-flex flex-wrap justify-content-between align-items-center">
-        <div className="m-2">
-          <h3>Producto 1</h3>
-          <Button className="btn btn-primary" onClick={redireccionar}>
-            Agregar
-          </Button>
-        </div>
-        <div className="m-2">
-          <h3>Producto 2</h3>
-          <Button className="btn btn-primary" onClick={redireccionar}>
-            Agregar
-          </Button>
-        </div>
-        <div className="m-2">
-          <h3>Producto 3</h3>
-          <Button className="btn btn-primary" onClick={redireccionar}>
-            Agregar
-          </Button>
-        </div>
-      </div>
+    <>
+      <Container>
+        <h1 className="display-4 text-center mb-5">Agregar Producto</h1>
+        <hr />
+        <Row>
+          <CardProducto>
+            <Card.Img
+              style={{ width: "300px", height: "250px" }}
+              variant="top"
+              src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg"
+              alt="imagenMario"
+            />
+            <Card.Body>
+              <Card.Title>MARIO BROSS</Card.Title>
+              <Card.Text>$2500</Card.Text>
+              <Link variant="primary" to={"/administrador/crear"}>
+                Agregar
+              </Link>
+            </Card.Body>
+          </CardProducto>
+        </Row>
+      </Container>
 
       <hr />
       <Table className="my-5" responsive striped bordered hover>
@@ -49,13 +61,12 @@ const Administrador = ({
           </tr>
         </thead>
         <tbody>
-          <ItemProducto
-            mostrarProductosCargados={mostrarProductosCargados}
-            setMostrarProductosCargados={setMostrarProductosCargados}
-          ></ItemProducto>
+          {productos.map((producto) => (
+            <ItemProducto key={producto.id} producto={producto}></ItemProducto>
+          ))}
         </tbody>
       </Table>
-    </section>
+    </>
   );
 };
 

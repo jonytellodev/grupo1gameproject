@@ -2,8 +2,16 @@ const variable_entornoProductos = import.meta.env.VITE_API_PRODUCTOS;
 
 export const agregarProducto = async (producto) => {
   try {
-    const respuesta = await fetch(variable_entornoProductos);
-    const listaProductos = await respuesta.json();
+    const respuesta = await fetch(variable_entornoProductos, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(producto),
+    });
+    return respuesta;
+
+    /*const listaProductos = await respuesta.json();
 
     const productoBuscado = listaProductos.find(
       (itemProducto) => itemProducto.nombreProducto === producto.nombreProducto
@@ -23,7 +31,7 @@ export const agregarProducto = async (producto) => {
     } else {
       console.log("el nombre del producto es incorrecto");
       return null;
-    }
+    }*/
   } catch (error) {
     console.log(error);
   }

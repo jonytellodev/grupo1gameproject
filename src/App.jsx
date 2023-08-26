@@ -46,7 +46,7 @@ function App() {
         ></Route>
         <Route
           exact
-          path="/administrador/editar"
+          path="/administrador/editar/:id"
           element={<EditarProducto></EditarProducto>}
         ></Route>
 

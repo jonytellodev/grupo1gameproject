@@ -4,35 +4,41 @@ import { agregarProducto } from "../../helpers/queries";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-const CrearProducto = ({ setMostrarProductosCargados }) => {
+const CrearProducto = () => {
   const navegacion = useNavigate();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = (producto) => {
     console.log(producto);
-    agregarProducto(producto).then((respuesta) => {
-      if (respuesta) {
-        Swal.fire(
-          "Agregaste " + respuesta.nombreProducto,
-          "Producto agregado con éxito!",
-          "success"
-        );
-        localStorage.setItem("productoAgregado", JSON.stringify(respuesta));
-        setMostrarProductosCargados(respuesta);
-        navegacion("/administrador");
-      } else {
+    agregarProducto(producto)
+      .then((respuesta) => {
+        console.log(respuesta);
+        if (respuesta.status === 201) {
+          Swal.fire(
+            "Agregaste " + respuesta.nombreProducto,
+            "Producto agregado con éxito!",
+            "success"
+          );
+          reset();
+          localStorage.setItem("productoAgregado", JSON.stringify(respuesta));
+          setMostrarProductosCargados(respuesta);
+          navegacion("/administrador");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
         Swal.fire(
           "Ocurrió un error!",
           "Nombre, precio o categoría del producto incorrecto",
           "error"
         );
-      }
-    });
+      });
   };
 
   return (
