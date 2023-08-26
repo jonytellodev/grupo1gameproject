@@ -2,24 +2,29 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import '../../App.css';
 
 import Isaias from  '../../assets/Isaias.png';
 import Jonathan from  '../../assets/Jhonatan.png';
 import Emiliana from  '../../assets/Emiliana.png';
 import Sergio from  '../../assets/Sergio.png';
-import Tufi from '../../assets/Sergio.png';
+import Tufi from '../../assets/tufi.png';
 import GitIcono from  '../../assets/git.png';
 import Linkedin from  '../../assets/linkedin.png';
 
-const PersonCard = ({ imageSrc, Apellido, Nombre, socialLinks }) => {
+
+
+const GrupoCards = ({ imageSrc, Apellido, Nombre, socialLinks }) => {
   return (
-    <Card style={{ width: '100%' }}>
+    
+    <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '30vh' }}>
+    <Card style={{ width: '80%' }}>
       <Row className="align-items-center">
         <Col sm={4}>
-          <Card.Img variant="top" src={imageSrc} roundedCircle />
+          <Card.Img variant="top" src={imageSrc}  />
         </Col>
         <Col sm={8}>
-          <Card.Body>
+          <Card.Body className="d-flex flex-column justify-content-center align-items-center">
             <Card.Title className="mb-3">
                 <span style={{ fontSize: '3.8rem' }}>{Apellido} {Nombre}</span>
                 </Card.Title>
@@ -34,8 +39,11 @@ const PersonCard = ({ imageSrc, Apellido, Nombre, socialLinks }) => {
         </Col>
       </Row>
     </Card>
+    </div>
   );
 };
+
+
 
 const Participantes = () => {
   const people = [
@@ -49,7 +57,7 @@ const Participantes = () => {
         { url: '', icon: Linkedin, name: 'Linkedin' },
         
       ] },
-      { id: 3, Apellido: 'Carrasco', Nombre: 'Jonathan', imageSrc: Jonathan, socialLinks: [
+      { id: 3, Apellido: 'Tello Carrasco', Nombre: 'Jonathan', imageSrc: Jonathan, socialLinks: [
         { url: 'https://github.com/jonytellodev', icon: GitIcono, name: 'Git' },
         { url: '', icon: Linkedin, name: 'Linkedin' },
         
@@ -69,18 +77,20 @@ const Participantes = () => {
   ];
 
   return (
-    <div>
-      {people.map(person => (
-        <div key={person.id} className="mb-4">
-          <PersonCard
-            Apellido={person.Apellido}
-            Nombre={person.Nombre}
-            imageSrc={person.imageSrc}
-            socialLinks={person.socialLinks}
-          />
-        </div>
-      ))}
-    </div>
+
+    <><div className="text-center">
+      <h1 style={{ color: 'var(--secondary-one-violet)' }}>GLP TEAM </h1>
+    </div><div>
+        {people.map(person => (
+          <div key={person.id} className="mb-4" style={{ marginBottom: '20px' }}>
+            <GrupoCards
+              Apellido={person.Apellido}
+              Nombre={person.Nombre}
+              imageSrc={person.imageSrc}
+              socialLinks={person.socialLinks} />
+          </div>
+        ))}
+      </div></>
   );
 };
 

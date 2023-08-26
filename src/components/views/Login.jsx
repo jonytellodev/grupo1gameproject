@@ -2,6 +2,7 @@ import { Form, Button, Container, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { login } from "../helpers/queries";
 import Swal from "sweetalert2";
+import '../../App.css';
 
 
 export const Login = ({setUsuarioActivo}) => {

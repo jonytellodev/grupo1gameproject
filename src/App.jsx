@@ -11,8 +11,8 @@ function App() {
 
   return (
     <>
-    <AcercaDeNosotros></AcercaDeNosotros>
-     {/* <Login setUsuarioActivo={setUsuarioActivo}></Login>  */}
+    { <AcercaDeNosotros></AcercaDeNosotros> }
+     {/* { <Login setUsuarioActivo={setUsuarioActivo}></Login> } */}
      {/* <Error404></Error404>  */}
    
     </>
