@@ -1,4 +1,5 @@
 {
+
     "usuarios":[
         {
           "nombreUsuario": "Admin",
@@ -12,4 +13,24 @@
     ]
 
 
+}
+
+  "productos": [
+    {
+      "nombreProducto": "Mario Bross",
+      "precio": 2500,
+      "categoria": "aventura",
+      "imagen": "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg",
+      "descripcion": "juego de aventura",
+      "id": 1
+    },
+    {
+      "nombreProducto": "Sonic Triple Trouble",
+      "precio": 2800,
+      "categoria": "accion",
+      "imagen": "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg",
+      "descripcion": "juego de acción",
+      "id": 2
+    }
+  ]
 }
