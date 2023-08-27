@@ -13,11 +13,11 @@ import EncapsularRutas from "./components/routes/EncapsularRutas";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 
 function App() {
-  const productosCargados =
-    JSON.parse(localStorage.getItem("productoAgregado")) || {};
+  //let productosCargados =
+  //JSON.parse(localStorage.getItem("productoAgregado")) || {};
 
-  const [mostrarProductosCargados, setMostrarProductosCargados] =
-    useState(productosCargados);
+  //const [mostrarProductosCargados, setMostrarProductosCargados] =
+  //useState(productosCargados);
 
   return (
     <BrowserRouter>
@@ -30,8 +30,8 @@ function App() {
           path="/administrador"
           element={
             <Administrador
-              mostrarProductosCargados={mostrarProductosCargados}
-              setMostrarProductosCargados={setMostrarProductosCargados}
+            //mostrarProductosCargados={mostrarProductosCargados}
+            //setMostrarProductosCargados={setMostrarProductosCargados}
             ></Administrador>
           }
         ></Route>
@@ -40,7 +40,7 @@ function App() {
           path="/administrador/crear"
           element={
             <CrearProducto
-              setMostrarProductosCargados={setMostrarProductosCargados}
+            //setMostrarProductosCargados={setMostrarProductosCargados}
             ></CrearProducto>
           }
         ></Route>

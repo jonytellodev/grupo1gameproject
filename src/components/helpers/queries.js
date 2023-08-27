@@ -9,6 +9,8 @@ export const agregarProducto = async (producto) => {
       },
       body: JSON.stringify(producto),
     });
+    console.log(respuesta.json());
+
     return respuesta;
   } catch (error) {
     console.log(error);
@@ -42,6 +44,7 @@ export const listarProductos = async () => {
     const respuesta = await fetch(variable_entornoProductos);
     console.log(respuesta);
     const listaProductos = await respuesta.json();
+    console.log(listaProductos);
     return listaProductos;
   } catch (error) {
     console.log(error);

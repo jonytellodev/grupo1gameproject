@@ -31,27 +31,34 @@ const Administrador = () => {
           <CardProducto></CardProducto>
         </Row>
         <hr />
-        <Table className="my-5" responsive striped bordered hover>
-          <thead>
-            <tr>
-              <th>Cod</th>
-              <th>Producto</th>
-              <th>Precio</th>
-              <th>URL de Imagen</th>
-              <th>Categoría</th>
-              <th>Opciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {productos.map((producto) => (
-              <ItemProducto
-                key={producto.id}
-                producto={producto}
-                setProductos={setProductos}
-              ></ItemProducto>
-            ))}
-          </tbody>
-        </Table>
+        {productos === [] ? (
+          <div className="container" style={{ backgroundColor: "lightblue" }}>
+            <h3 className="m-3 p-4 text-center">No hay citas</h3>
+          </div>
+        ) : (
+          <Table className="my-5" responsive striped bordered hover>
+            <thead>
+              <tr>
+                <th>Cod</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>URL de Imagen</th>
+                <th>Categoría</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {productos.map((producto) => (
+                <ItemProducto
+                  key={producto.id}
+                  producto={producto}
+                  setProductos={setProductos}
+                ></ItemProducto>
+              ))}
+            </tbody>
+          </Table>
+        )}
       </Container>
     </>
   );

@@ -2,7 +2,11 @@ import { useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { editarProducto, obtenerProducto } from "../../helpers/queries";
+import {
+  editarProducto,
+  listarProductos,
+  obtenerProducto,
+} from "../../helpers/queries";
 import Swal from "sweetalert2";
 
 const EditarProducto = () => {
@@ -42,8 +46,10 @@ const EditarProducto = () => {
             "Producto editado con éxito!",
             "success"
           );
+          listarProductos().then((respuesta) => {
+            localStorage.setItem("productoAgregado", JSON.stringify(respuesta));
+          });
           navegacion("/administrador");
-          //localStorage.setItem("productoAgregado", JSON.stringify(respuesta));
         }
       })
       .catch((error) => {

@@ -1,10 +1,19 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { agregarProducto } from "../../helpers/queries";
+import { agregarProducto, listarProductos } from "../../helpers/queries";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const CrearProducto = () => {
+  //let oldLS = [JSON.parse(localStorage.getItem("productoAgregado"))] || [];
+  //const [productosLS, setProductosLS] = useState(oldLS);
+
+  //useEffect(() => {
+  //  localStorage.setItem("productoAgregado", JSON.stringify(productosLS));
+  //}, [productosLS]);
+  //localStorage.setItem("productoAgregado", []);
+
   const navegacion = useNavigate();
   const {
     register,
@@ -14,10 +23,8 @@ const CrearProducto = () => {
   } = useForm();
 
   const onSubmit = (producto) => {
-    console.log(producto);
     agregarProducto(producto)
       .then((respuesta) => {
-        console.log(respuesta);
         if (respuesta.status === 201) {
           console.log(producto.nombreProducto);
           Swal.fire(
@@ -26,7 +33,10 @@ const CrearProducto = () => {
             "success"
           );
           reset();
-          //localStorage.setItem("productoAgregado", JSON.stringify(respuesta));
+          listarProductos().then((respuesta) => {
+            console.log(respuesta);
+            localStorage.setItem("productoAgregado", JSON.stringify(respuesta));
+          });
           navegacion("/administrador");
         }
       })

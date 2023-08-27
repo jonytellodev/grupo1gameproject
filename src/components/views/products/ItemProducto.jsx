@@ -22,6 +22,10 @@ const ItemProducto = ({ producto, id, setProductos }) => {
             listarProductos().then((respuesta) => {
               console.log(respuesta);
               setProductos(respuesta);
+              localStorage.setItem(
+                "productoAgregado",
+                JSON.stringify(respuesta)
+              );
             });
 
             Swal.fire(
@@ -67,6 +71,7 @@ const ItemProducto = ({ producto, id, setProductos }) => {
           <tr>
             <td className="fs-1">-</td>
           </tr>
+          <p className="display-4">No hay ningún producto cargado</p>
         </>
       )}
     </>
