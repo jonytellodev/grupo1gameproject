@@ -15,6 +15,17 @@
   margin: 0;
 }
 
+
+:root {
+  --primary-white: #ffffff;
+  --secondary-one-violet: #7e16cd;
+  --secondary-two-black: #303948;
+  --terciary-lightgrey: #e6e6e6;
+}
+
+.mainSection {
+  flex-grow: 1;
+
 .bgLightGrey {
   background-color: var(--terciary-lightgrey);
 }

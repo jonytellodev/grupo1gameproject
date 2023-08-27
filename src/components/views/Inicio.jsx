@@ -1,4 +1,9 @@
 import React from "react";
+import { Container, Row } from "react-bootstrap";
+import CardProducto from "./products/CardProducto";
+import { useState, useEffect } from "react";
+import { listarProductos } from "../helpers/queries";
+import Swal from "sweetalert2";
 import "./Inicio.css";
 import Carousel from "react-bootstrap/Carousel";
 import { Container, InputGroup, Form, Button } from "react-bootstrap";

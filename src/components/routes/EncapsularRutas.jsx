@@ -1,7 +1,6 @@
-import React from "react";
+import { Navigate } from "react-router-dom";
+import Administrador from "../views/Administrador";
 
-const EncapsularRutas = () => {
-  return <div></div>;
-};
+const EncapsularRutas = ({ children }) => {};
 
 export default EncapsularRutas;

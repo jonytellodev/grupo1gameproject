@@ -1,20 +1,80 @@
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { eliminarProducto, listarProductos } from "../../helpers/queries";
 
-const ItemProducto = () => {
+const ItemProducto = ({ producto, id, setProductos }) => {
+  const borrarProducto = () => {
+    Swal.fire({
+      title: "Eliminar Producto",
+      text: "¿Está seguro que quiere eliminar este producto?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Borrar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        eliminarProducto(producto.id).then((respuesta) => {
+          console.log(respuesta);
+          if (respuesta.status === 200) {
+            listarProductos().then((respuesta) => {
+              console.log(respuesta);
+              setProductos(respuesta);
+              localStorage.setItem(
+                "productoAgregado",
+                JSON.stringify(respuesta)
+              );
+            });
+
+            Swal.fire(
+              "Producto eliminado",
+              "El producto fue correctamente borrado",
+              "success"
+            );
+          } else {
+            Swal.fire(
+              "Se produjo un error",
+              "Intente realizar esta operacion mas tarde",
+              "error"
+            );
+          }
+        });
+      }
+    });
+  };
+
   return (
-    <tr>
-      <td>1</td>
-      <td className="fs-5">MARIO BROSS</td>
-      <td className="fs-5">$3200</td>
-      <td>
-        https://images.pexels.com/photos/6802983/pexels-photo-6802983.jpeg
-      </td>
-      <td className="fs-5">Entretenimiento</td>
-      <td className="d-flex flex-nowrap">
-        <Button variant="danger">X</Button>
-        <Button className="fs-5 fw-bold mx-2 btn btn-warning">Edit🖌️</Button>
-      </td>
-    </tr>
+    <>
+      {producto.nombreProducto ? (
+        <tr>
+          <td>{producto.id}</td>
+          <td className="fs-5">{producto.nombreProducto}</td>
+          <td className="fs-5">{producto.precio}</td>
+          <td>{producto.imagen}</td>
+          <td className="fs-5">{producto.categoria}</td>
+          <td className="d-flex flex-nowrap">
+            <Button variant="danger" onClick={borrarProducto}>
+              X
+            </Button>
+            <Link
+              className="fs-5 fw-bold mx-2 btn btn-warning"
+              to={`/administrador/editar/${producto.id}`}
+            >
+              Edit🖌️
+            </Link>
+          </td>
+        </tr>
+      ) : (
+        <>
+          <tr>
+            <td className="fs-1">-</td>
+          </tr>
+          <p className="display-4">No hay ningún producto cargado</p>
+        </>
+      )}
+    </>
   );
 };
 

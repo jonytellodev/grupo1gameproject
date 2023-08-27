@@ -1,43 +1,66 @@
-import { Button, Table } from "react-bootstrap";
+import { Container, Button, Table, Row, Card } from "react-bootstrap";
 import ItemProducto from "./products/ItemProducto";
-import CrearProducto from "./products/CrearProducto";
+import { listarProductos } from "../helpers/queries";
+import CardProducto from "./products/CardProducto";
+import { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 
 const Administrador = () => {
-  return (
-    <section className="container mainSection">
-      <h1 className="mb-5 text-center">Productos Disponibles</h1>
-      <div className="my-5 d-flex flex-wrap justify-content-between align-items-center">
-        <div className="m-2">
-          <h3>Producto 1</h3>
-          <Button className="btn btn-primary">Agregar</Button>
-        </div>
-        <div className="m-2">
-          <h3>Producto 2</h3>
-          <Button className="btn btn-primary">Agregar</Button>
-        </div>
-        <div className="m-2">
-          <h3>Producto 3</h3>
-          <Button className="btn btn-primary">Agregar</Button>
-        </div>
-      </div>
+  const [productos, setProductos] = useState([]);
 
-      <hr />
-      <Table className="my-5" responsive striped bordered hover>
-        <thead>
-          <tr>
-            <th>Cod</th>
-            <th>Producto</th>
-            <th>Precio</th>
-            <th>URL de Imagen</th>
-            <th>Categoría</th>
-            <th>Opciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <ItemProducto></ItemProducto>
-        </tbody>
-      </Table>
-    </section>
+  useEffect(() => {
+    listarProductos().then((respuestaProductos) => {
+      if (respuestaProductos) {
+        setProductos(respuestaProductos);
+      } else {
+        Swal.fire(
+          "Ocurrió un error!",
+          "Intente realizar esta operación más tarde",
+          "error"
+        );
+      }
+    });
+  }, []);
+
+  return (
+    <>
+      <Container>
+        <h1 className="display-4 text-center fw-bold mb-5">Agregar Producto</h1>
+        <hr />
+        <Row>
+          <CardProducto></CardProducto>
+        </Row>
+        <hr />
+        {productos === [] ? (
+          <div className="container" style={{ backgroundColor: "lightblue" }}>
+            <h3 className="m-3 p-4 text-center">No hay citas</h3>
+          </div>
+        ) : (
+          <Table className="my-5" responsive striped bordered hover>
+            <thead>
+              <tr>
+                <th>Cod</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>URL de Imagen</th>
+                <th>Categoría</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {productos.map((producto) => (
+                <ItemProducto
+                  key={producto.id}
+                  producto={producto}
+                  setProductos={setProductos}
+                ></ItemProducto>
+              ))}
+            </tbody>
+          </Table>
+        )}
+      </Container>
+    </>
   );
 };
 
