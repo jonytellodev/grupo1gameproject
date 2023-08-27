@@ -1,0 +1,62 @@
+@import url(/src/App.css);
+
+.featured-games {
+    font-family: 'Montserrat';
+    text-align: center;
+}
+
+.featured-games h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: var(--secondary-one-violet);
+    font-weight: 700;
+}
+
+.game-card {
+    display: inline-block;
+    margin: 5px;
+    padding: 20px;
+    background-color: var(--terciary-lightgrey);
+    max-width: 300px;
+}
+
+.game-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.game-card h3 {
+    color: var(--secondary-one-violet);
+    font-weight: 600;
+}
+
+.game-card span{
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+.game-card button{
+    text-align: center;
+    font-weight: 600;
+    background-color: var(--secondary-two-black);
+    color: var(--primary-white);
+}
+
+.fixImgWidth{
+    width: 100%;
+}
+
+.gamefixImg{
+    max-width: 70%;
+}
+
+.searchGameBar{
+    font-family: 'Montserrat';
+}
+
+.searchGameButton{
+    background-color: var(--secondary-one-violet);
+    color: var(--primary-white);
+    font-weight: 500;
+}

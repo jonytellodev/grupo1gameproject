@@ -1,11 +1,11 @@
 {
   "productos": [],
-  "usuarioAdmin": [
+  "usuarios": [
     {
       "nombreUsuario": "Admin",
-      "email": "admin@gamerpage.com",
-      "password": "123456aA",
+      "email": "admin@rolling.com",
+      "password": "123456aaA",
       "id": 1
     }
-  ]
+  ],
 }

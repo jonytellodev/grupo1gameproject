@@ -1,3 +1,4 @@
+
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Administrador from "./components/views/Administrador";
@@ -11,6 +12,8 @@ import Inicio from "./components/views/Inicio";
 import { useState } from "react";
 import EncapsularRutas from "./components/routes/EncapsularRutas";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
+import Login from "./components/views/Login";
+import AcercaDeNosotros from "./components/views/AcercaDeNosotros";
 
 function App() {
   //let productosCargados =
@@ -51,6 +54,8 @@ function App() {
         ></Route>
 
         <Route path="*" element={<Error404></Error404>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/nosotros" element={<AcercaDeNosotros></AcercaDeNosotros>}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>
@@ -58,3 +63,4 @@ function App() {
 }
 
 export default App;
+
