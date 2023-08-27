@@ -25,35 +25,34 @@ const Administrador = () => {
   return (
     <>
       <Container>
-        <h1 className="display-4 text-center mb-5">Agregar Producto</h1>
+        <h1 className="display-4 text-center fw-bold mb-5">Agregar Producto</h1>
         <hr />
         <Row>
           <CardProducto></CardProducto>
         </Row>
+        <hr />
+        <Table className="my-5" responsive striped bordered hover>
+          <thead>
+            <tr>
+              <th>Cod</th>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>URL de Imagen</th>
+              <th>Categoría</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {productos.map((producto) => (
+              <ItemProducto
+                key={producto.id}
+                producto={producto}
+                setProductos={setProductos}
+              ></ItemProducto>
+            ))}
+          </tbody>
+        </Table>
       </Container>
-
-      <hr />
-      <Table className="my-5" responsive striped bordered hover>
-        <thead>
-          <tr>
-            <th>Cod</th>
-            <th>Producto</th>
-            <th>Precio</th>
-            <th>URL de Imagen</th>
-            <th>Categoría</th>
-            <th>Opciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {productos.map((producto) => (
-            <ItemProducto
-              key={producto.id}
-              producto={producto}
-              setProductos={setProductos}
-            ></ItemProducto>
-          ))}
-        </tbody>
-      </Table>
     </>
   );
 };

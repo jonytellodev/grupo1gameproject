@@ -88,12 +88,17 @@ const CrearProducto = () => {
               required: "El precio del producto es un dato obligatorio",
               min: {
                 value: 1000,
-                message: "El precio como mínimo debe ser de $1000",
+                message:
+                  "El precio como mínimo debe ser de $1000 y no debe ser valor negativo",
               },
               max: {
                 value: 40000,
                 message:
                   "El precio del producto como máximo debe ser de $40000",
+              },
+              pattern: {
+                value: '"^[0-9]+"',
+                message: "No es válido números negativos",
               },
             })}
           />
