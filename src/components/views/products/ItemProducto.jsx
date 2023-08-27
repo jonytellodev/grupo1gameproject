@@ -47,33 +47,24 @@ const ItemProducto = ({ producto, id, setProductos }) => {
 
   return (
     <>
-      {producto.nombreProducto ? (
-        <tr>
-          <td>{producto.id}</td>
-          <td className="fs-5">{producto.nombreProducto}</td>
-          <td className="fs-5">{producto.precio}</td>
-          <td>{producto.imagen}</td>
-          <td className="fs-5">{producto.categoria}</td>
-          <td className="d-flex flex-nowrap">
-            <Button variant="danger" onClick={borrarProducto}>
-              X
-            </Button>
-            <Link
-              className="fs-5 fw-bold mx-2 btn btn-warning"
-              to={`/administrador/editar/${producto.id}`}
-            >
-              Edit🖌️
-            </Link>
-          </td>
-        </tr>
-      ) : (
-        <>
-          <tr>
-            <td className="fs-1">-</td>
-          </tr>
-          <p className="display-4">No hay ningún producto cargado</p>
-        </>
-      )}
+      <tr>
+        <td>{producto.id}</td>
+        <td className="fs-5">{producto.nombreProducto}</td>
+        <td className="fs-5">{producto.precio}</td>
+        <td>{producto.imagen}</td>
+        <td className="fs-5">{producto.categoria}</td>
+        <td className="d-flex flex-nowrap">
+          <Button variant="danger" onClick={borrarProducto}>
+            X
+          </Button>
+          <Link
+            className="fs-5 fw-bold mx-2 btn btn-warning"
+            to={`/administrador/editar/${producto.id}`}
+          >
+            Edit🖌️
+          </Link>
+        </td>
+      </tr>
     </>
   );
 };

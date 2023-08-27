@@ -31,11 +31,7 @@ const Administrador = () => {
           <CardProducto></CardProducto>
         </Row>
         <hr />
-        {productos === [] ? (
-          <div className="container" style={{ backgroundColor: "lightblue" }}>
-            <h3 className="m-3 p-4 text-center">No hay citas</h3>
-          </div>
-        ) : (
+        {productos.length != 0 ? (
           <Table className="my-5" responsive striped bordered hover>
             <thead>
               <tr>
@@ -58,6 +54,12 @@ const Administrador = () => {
               ))}
             </tbody>
           </Table>
+        ) : (
+          <div className="container" style={{ backgroundColor: "lightblue" }}>
+            <h3 className="m-3 p-4 text-center">
+              No hay ningún producto cargado
+            </h3>
+          </div>
         )}
       </Container>
     </>

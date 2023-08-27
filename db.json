@@ -1,11 +1,28 @@
 {
-  "productos": [],
-  "usuarioAdmin": [
+  "productos": [
     {
-      "nombreUsuario": "Admin",
-      "email": "admin@gamerpage.com",
-      "password": "123456aA",
+      "nombreProducto": "Sonic Triple Trouble",
+      "descripcion": "juego de aventura y acción",
+      "precio": "4500",
+      "imagen": "https://howlongtobeat.com/games/111702_Sonic_Triple_Trouble_16-Bit.jpg",
+      "categoria": "Acción",
       "id": 1
+    },
+    {
+      "nombreProducto": "Mario Bross",
+      "descripcion": "juego de aventura",
+      "precio": "3800",
+      "imagen": "https://howlongtobeat.com/games/111702_Sonic_Triple_Trouble_16-Bit.jpg",
+      "categoria": "Aventura",
+      "id": 2
+    },
+    {
+      "nombreProducto": "Space Ace",
+      "descripcion": "juego del espacio de estrategia",
+      "precio": "8000",
+      "imagen": "https://howlongtobeat.com/games/111702_Sonic_Triple_Trouble_16-Bit.jpg",
+      "categoria": "Estrategia",
+      "id": 3
     }
   ]
 }
