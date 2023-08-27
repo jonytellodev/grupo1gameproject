@@ -1,20 +1,12 @@
 {
-
-    "usuarios":[
-        {
-          "nombreUsuario": "Admin",
-          "email": "admin@rolling.com",
-          "password": "123456aaA",
-          "id":1
-        }
-
-
-
-    ]
-
-
-}
-
+  "usuarios": [
+    {
+      "nombreUsuario": "Admin",
+      "email": "admin@rolling.com",
+      "password": "123456aaA",
+      "id": 1
+    }
+  ],
   "productos": [
     {
       "nombreProducto": "Mario Bross",
@@ -34,3 +26,6 @@
     }
   ]
 }
+
+
+

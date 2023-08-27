@@ -45,7 +45,7 @@ export const Login = ({setUsuarioActivo}) => {
     
     
       return (
-        <Container className="mainSection">
+        <Container className="mainSection loginFix">
           <Card className="my-5">
             <Card.Header as="h5">Login</Card.Header>
             <Card.Body>

@@ -5,7 +5,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <Navbar expand="lg" bg="dark" className="fixFooter bg-body-dark mt-5 p-4">
-      <Container className="flex-row justify-content-evenly FooterText">
+      <Container className="d-flex flex-column justify-content-evenly FooterText">
         <div className="smFooterMenu">
           <Navbar.Brand as={Link} to={"/"} className="text-light fw-bold">
             <img
@@ -22,15 +22,11 @@ const Footer = () => {
             <NavLink className={"nav-link text-light fw-bold"}>
               Registro
             </NavLink>
-            <NavLink
-              className={"nav-link text-light fw-bold"}
-              end
-              to={"/administrador"}
-            >
-              Administrador
-            </NavLink>
-            <NavLink className={"nav-link text-light fw-bold"}>Login</NavLink>
+            <NavLink className={"nav-link text-light fw-bold"} end to={"/nosotros"}>Acerca de Nosotros</NavLink>
           </Nav>
+        </div>
+        <div className="copyrightGLPTeam mt-3 d-flex flex-column">
+          <span> Copyright 2023 || GLP Team</span>
         </div>
       </Container>
     </Navbar>

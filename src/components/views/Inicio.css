@@ -44,11 +44,11 @@
 }
 
 .fixImgWidth{
-    max-width: 100%;
+    width: 100%;
 }
 
 .gamefixImg{
-    width: 70%;
+    max-width: 70%;
 }
 
 .searchGameBar{

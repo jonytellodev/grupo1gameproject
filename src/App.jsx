@@ -1,27 +1,4 @@
 
-import { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'
-import Login from "./components/views/Login";
-import Error404 from './components/views/Error404';
-import AcercaDeNosotros from "./components/views/AcercaDeNosotros";
-
-function App() {
-  const usuarioEnLinea = JSON.parse(sessionStorage.getItem('usuarioLogueado')) || {};
-  const [usuarioActivo, setUsuarioActivo] = useState(usuarioEnLinea);
-
-  return (
-    <>
-    { <AcercaDeNosotros></AcercaDeNosotros> }
-     {/* { <Login setUsuarioActivo={setUsuarioActivo}></Login> } */}
-     {/* <Error404></Error404>  */}
-   
-    </>
-  )
-}
-
-export default App
-
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Administrador from "./components/views/Administrador";
@@ -32,6 +9,8 @@ import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer";
 import Error404 from "./components/views/Error404";
 import Inicio from "./components/views/Inicio";
+import Login from "./components/views/Login";
+import AcercaDeNosotros from "./components/views/AcercaDeNosotros";
 
 function App() {
   return (
@@ -55,8 +34,10 @@ function App() {
           element={<EditarProducto></EditarProducto>}
         ></Route>
         <Route path="*" element={<Error404></Error404>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/nosotros" element={<AcercaDeNosotros></AcercaDeNosotros>}></Route>
       </Routes>
-      <Footer classname="fixFooter"></Footer>
+      <Footer></Footer>
     </BrowserRouter>
   );
 }

@@ -2,3 +2,9 @@
     bottom: 0;
     width: 100%;
   }
+
+.copyrightGLPTeam{
+  color: var(--primary-white);
+  text-align: center;
+  font-size: 13px;
+}
