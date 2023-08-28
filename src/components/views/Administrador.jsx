@@ -10,6 +10,7 @@ const Administrador = () => {
 
   useEffect(() => {
     listarProductos().then((respuestaProductos) => {
+      console.log(respuestaProductos);
       if (respuestaProductos) {
         setProductos(respuestaProductos);
       } else {
@@ -31,7 +32,7 @@ const Administrador = () => {
           <CardProducto></CardProducto>
         </Row>
         <hr />
-        {productos === [] ? (
+        {productos.length === 0 ? (
           <div className="container" style={{ backgroundColor: "lightblue" }}>
             <h3 className="m-3 p-4 text-center">No hay citas</h3>
           </div>

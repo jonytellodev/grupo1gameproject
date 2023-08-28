@@ -1,5 +1,14 @@
 {
-  "productos": [],
+  "productos": [
+    {
+      "nombreProducto": "Mario Bross",
+      "descripcion": "Nes",
+      "precio": "1000",
+      "imagen": "https://google.com/a.jpg",
+      "categoria": "Aventura",
+      "id": 1
+    }
+  ],
   "usuarios": [
     {
       "nombreUsuario": "Admin",
@@ -7,5 +16,5 @@
       "password": "123456aaA",
       "id": 1
     }
-  ],
+  ]
 }

@@ -25,6 +25,7 @@
 
 .mainSection {
   flex-grow: 1;
+}
 
 .bgLightGrey {
   background-color: var(--terciary-lightgrey);
