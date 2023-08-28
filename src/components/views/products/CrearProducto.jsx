@@ -64,7 +64,7 @@ const CrearProducto = () => {
               required: "El nombre del producto es un dato obligatorio",
               pattern: {
                 value:
-                  /(\W|^)(Mario Bross|Sonic Triple Trouble|Space Ace)(\W|$)/,
+                  /(\W|^)(Mario Bross|Sonic Triple Trouble|Space Ace|GTA V|Minecraft Java & Bedrock)(\W|$)/,
                 message:
                   "El nombre debe cumplir con el formato válido correspondiente a ese producto",
               },

@@ -52,7 +52,13 @@ const ItemProducto = ({ producto, id, setProductos }) => {
           <td>{producto.id}</td>
           <td className="fs-5">{producto.nombreProducto}</td>
           <td className="fs-5">{producto.precio}</td>
-          <td>{producto.imagen}</td>
+          <td>
+            <img
+              src={producto.imagen}
+              alt={producto.nombreProducto}
+              style={{ width: "100px", height: "100px" }}
+            />
+          </td>
           <td className="fs-5">{producto.categoria}</td>
           <td className="d-flex flex-nowrap">
             <Button variant="danger" onClick={borrarProducto}>
