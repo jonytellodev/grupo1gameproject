@@ -8,6 +8,22 @@ import Carousel from "react-bootstrap/Carousel";
 import { Container, InputGroup, Form, Button, Row } from "react-bootstrap";
 
 const Inicio = () => {
+  const [productos, setProductos] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
+  const [busquedaResultados, setBusquedaResultados] = useState([]);
+  const [catalogoVacio, setCatalogoVacio] = useState(false);
+
+  useEffect(() => {
+    // Cargar juegos al montar el componente
+    cargarProductos();
+  }, []);
+
+  // Función para cargar juegos
+  const cargarProductos = async () => {
+    const productosData = await listarProductos();
+    setProductos(productosData);
+  };
+
   return (
     <>
       <Carousel>
@@ -41,114 +57,73 @@ const Inicio = () => {
             aria-label="Busca tu juego favorito..."
             aria-describedby="basic-addon2"
           />
-          <Button variant="outline-secondary" id="button-addon2" className="searchGameButton">
+          <Button
+            variant="outline-secondary"
+            id="button-addon2"
+            className="searchGameButton"
+            onChange={(e) => {
+              setBusqueda(e.target.value);
+              const resultados = productos.filter((producto) =>
+                producto.nombreProducto
+                  .toLowerCase()
+                  .includes(busqueda.toLowerCase())
+              );
+              setBusquedaResultados(resultados);
+              setCatalogoVacio(false);
+            }}
+          >
             Buscar
           </Button>
         </InputGroup>
       </Container>
 
       <Container className="featured-games">
-        <h2 className="text-center">CATALOGO DE TITULOS</h2>
-        <div className="row justify-content-center">
-          <div className="col-md-4 col-sm-6 col-lg-12">
-            <div className="game-card text-center">
-            <img src="https://i.ibb.co/4pTRg7g/gta.jpg" alt="gta" border="0" />
-              <h3>GTA V - PS4</h3>
-              <span>$000,00</span>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-              <button className="btn btn-light">DETALLES</button>
-            </div>
-            <div className="game-card text-center">
-              <img
-                src="https://i.ibb.co/m4pPxsL/minecraft.webp"
-                alt="Juego 1"
-                className="img-fluid gamefixImg"
-              />
-              <h3>MINECRAFT</h3>
-              <span>$000,00</span>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-              <button className="btn btn-light">DETALLES</button>
-            </div>
-            <div className="game-card text-center">
-              <img
-                src="src\assets\minecraft.webp"
-                alt="Juego 1"
-                className="img-fluid gamefixImg"
-              />
-              <h3>GTA V - PS4</h3>
-              <span>$000,00</span>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-              <button className="btn btn-light">DETALLES</button>
-            </div>
-            <div className="game-card text-center">
-              <img
-                src="/src/assets/gta.jpeg"
-                alt="Juego 1"
-                className="img-fluid gamefixImg"
-              />
-              <h3>GTA V - PS4</h3>
-              <span>$000,00</span>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-              <button className="btn btn-light">DETALLES</button>
-            </div>
-            <div className="game-card text-center">
-              <img
-                src="/src/assets/gta.jpeg"
-                alt="Juego 1"
-                className="img-fluid gamefixImg"
-              />
-              <h3>GTA V - PS4</h3>
-              <span>$000,00</span>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-              <button className="btn btn-light">DETALLES</button>
-            </div>
-            <div className="game-card text-center">
-              <img
-                src="/src/assets/gta.jpeg"
-                alt="Juego 1"
-                className="img-fluid gamefixImg"
-              />
-              <h3>GTA V - PS4</h3>
-              <span>$000,00</span>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-              <button className="btn btn-light">DETALLES</button>
-            </div>
-            <div className="game-card text-center">
-              <img
-                src="/src/assets/gta.jpeg"
-                alt="Juego 1"
-                className="img-fluid gamefixImg"
-              />
-              <h3>GTA V - PS4</h3>
-              <span>$000,00</span>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-              <button className="btn btn-light">DETALLES</button>
-            </div>
-            <div className="game-card text-center">
-              <img
-                src="/src/assets/gta.jpeg"
-                alt="Juego 1"
-                className="img-fluid gamefixImg"
-              />
-              <h3>GTA V - PS4</h3>
-              <span>$000,00</span>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-              <button className="btn btn-light">DETALLES</button>
-            </div>
-            <div className="game-card text-center">
-              <img
-                src="/src/assets/gta.jpeg"
-                alt="Juego 1"
-                className="img-fluid gamefixImg"
-              />
-              <h3>GTA V - PS4</h3>
-              <span>$000,00</span>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-              <button className="btn btn-light">DETALLES</button>
+  <h2 className="text-center">CATÁLOGO DE TÍTULOS</h2>
+  <div className="row">
+    {busqueda.length > 0 && busquedaResultados.length === 0 && (
+      <p className="text-center">
+        La búsqueda no obtuvo resultados, intente nuevamente.
+      </p>
+    )}
+    {busquedaResultados.length > 0 ||
+    (busqueda.length === 0 && !catalogoVacio) ? (
+      productos.map((producto) => (
+        <div className="col-md-4 col-sm-6 col-lg-3" key={producto.id}>
+          <div className="game-card text-center">
+            <img src={producto.imagen} alt="gta" className="img-fluid" />
+            <h3>{producto.nombreProducto}</h3>
+            <span>{producto.precio}</span>
+            <p>{producto.descripcion}</p>
+            <button
+              className="btn btn-light"
+              data-bs-toggle="modal"
+              data-bs-target={`#modal-${producto.id}`}
+            >
+              DETALLES
+            </button>
+            {/* Modal */}
+            <div
+              className="modal fade"
+              id={`modal-${producto.id}`}
+              tabIndex="-1"
+              aria-labelledby={`modal-${producto.id}-label`}
+              aria-hidden="true"
+            >
+              {/* ... contenido del modal */}
             </div>
           </div>
         </div>
-      </Container>
+      ))
+    ) : (
+      <div className="col-12 text-center">
+        <p>El catálogo está vacío.</p>
+        <button className="btn btn-light" onClick={cargarProductos}>
+          Recargar Catálogo
+        </button>
+      </div>
+    )}
+  </div>
+</Container>
     </>
   );
 };
