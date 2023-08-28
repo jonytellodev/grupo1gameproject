@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="smFooterMenu">
           <Navbar.Brand as={Link} to={"/"} className="text-light fw-bold">
             <img
-              src="src\assets\glp1white.svg"
+              src="glp1white.svg"
               alt="logo GLP"
               className="logoFixFooter"
             />

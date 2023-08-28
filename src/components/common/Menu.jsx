@@ -7,7 +7,7 @@ const Menu = () => {
       <Container className="d-flex">
         <div>
           <Navbar.Brand as={Link} to={"/"}>
-            <img src="src/assets/glp1.svg" alt="logo GLP" className="logoFixNavbar" />
+            <img src="glp1.svg" alt="logo GLP" className="logoFixNavbar" />
           </Navbar.Brand>
         </div>
         <div>
