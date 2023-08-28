@@ -4,25 +4,25 @@
       "nombreProducto": "Mario Bross",
       "descripcion": "juego de plataforma 8 bits",
       "precio": "1000",
-      "imagen": "https://elcomercio.pe/resizer/iYoVXZNBAx0J1uPbSf-HSTf8sVc=/620x0/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/ZP6K4O2P3BAZLIOZ343OJQN7UU.jpg",
+      "imagen": "https://i.ibb.co/nQpF2J1/1366-2000.jpg",
       "categoria": "Aventura",
       "id": 1
-    },
-    {
-      "nombreProducto": "GTA V",
-      "descripcion": "juego de mundo abierto con misiones",
-      "precio": "20000",
-      "imagen": "https://i.pinimg.com/originals/5c/09/09/5c0909173a1524c8270bf87557e1a7c6.jpg",
-      "categoria": "Estrategia",
-      "id": 2
     },
     {
       "nombreProducto": "Sonic Triple Trouble",
       "descripcion": "Sonic de Sega Game Gear",
       "precio": "1200",
-      "imagen": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b4310fed-a78a-4a5a-be2b-46008c4f3b25/dc53o9t-3c18ff25-3c9b-43ef-9c57-56f1dd319f35.jpg/v1/fill/w_1280,h_2142,q_75,strp/sonic_triple_trouble_by_waniramirez_dc53o9t-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjE0MiIsInBhdGgiOiJcL2ZcL2I0MzEwZmVkLWE3OGEtNGE1YS1iZTJiLTQ2MDA4YzRmM2IyNVwvZGM1M285dC0zYzE4ZmYyNS0zYzliLTQzZWYtOWM1Ny01NmYxZGQzMTlmMzUuanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.dgZdLik1p7ynltjMTSlwPNtMLO99f1xiu0Nlbrz12yg",
+      "imagen": "https://i.ibb.co/CKFpgN6/sonic-triple-trouble-by-waniramirez-dc53o9t-fullview.jpg",
       "categoria": "Aventura",
       "id": 3
+    },
+    {
+      "nombreProducto": "GTA V",
+      "descripcion": "juego de misiones en 3 persona",
+      "precio": "25000",
+      "imagen": "https://i.ibb.co/ZNCpQZ0/gta-v-caratula-fan.jpg",
+      "categoria": "Estrategia",
+      "id": 4
     }
   ],
   "usuarios": [

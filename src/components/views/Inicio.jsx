@@ -92,7 +92,7 @@ const Inicio = () => {
           <div className="game-card text-center">
             <img src={producto.imagen} alt="gta" className="img-fluid" />
             <h3>{producto.nombreProducto}</h3>
-            <span>{producto.precio}</span>
+            <span>${producto.precio}</span>
             <p>{producto.descripcion}</p>
             <button
               className="btn btn-light"
