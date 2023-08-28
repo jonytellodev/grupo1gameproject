@@ -66,4 +66,8 @@ git clone https://github.com/EmiTorres93/sitio_admin_RCS
 
 ## Autores 👩‍🏫
 
-1. Emiliana M. Torres [GitHub](https://github.com/EmiTorres93)
+* Emiliana M. Torres [GitHub](https://github.com/EmiTorres93)
+* Sergio Zelaya
+* Jonathan Tello Carrasco
+* Victor Tufi Quipildor
+* Isaias Padros
